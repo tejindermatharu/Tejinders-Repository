@@ -19,16 +19,19 @@ namespace CashMachineUnitTests
             _sut = new LeastItemsCalculator();
         }
 
-        [Test]
-        public void GivenWithdrawalRequestReturn()
+        [TestCase(30, "£20 x 1,£10 x 1")]
+        [TestCase(40, "£20 x 2")]
+        [TestCase(90, "£50 x 1,£20 x 2")]
+        [TestCase(110, "£50 x 2,£10 x 1")]
+        [TestCase(240, "£50 x 4,£20 x 2")]
+        public void GivenPoundsOnlyWithdrawalRequest_ThenReturnCorrectCashBreakdown(int cash, string expected)
         {
-            var test = 110 % 50;
             var calculator = new LeastItemsCalculator();
 
-            var result =  calculator.CalculateWithdralResult(110);
+            var result =  calculator.CalculateWithdralResult(cash);
             var testing = result.GetFormatedCashList();
 
-            var expected = "£100 x 1,10p x 1";
+            //var expected = "£100 x 1,10p x 1";
             Assert.That(testing, Is.EqualTo(expected));
         }
 

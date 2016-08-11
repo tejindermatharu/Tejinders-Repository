@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CashMachine.Entities.Extensions;
 
 namespace CashMachine.Entities
 {
@@ -22,7 +23,7 @@ namespace CashMachine.Entities
 
             foreach (var cashItem in CashList.OrderByDescending(x => x.Key))
             {
-                var cash = cashItem.Key >= 100 ? string.Format("£{0}", cashItem.Key) : string.Format("{0}p", cashItem.Key);
+                var cash = cashItem.Key >= 1000 ? string.Format("£{0}", cashItem.Key.ToPounds()) : string.Format("{0}p", cashItem.Key);
 
                 builder.Append(string.Format("{0} x {1},",  cash, cashItem.Value.ToString()));
             }

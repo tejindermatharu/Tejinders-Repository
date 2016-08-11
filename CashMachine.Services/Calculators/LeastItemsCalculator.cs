@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CashMachine.Entities;
+using CashMachine.Entities.Extensions;
 
 namespace CashMachine.Services.Calculators
 {
@@ -26,37 +27,37 @@ namespace CashMachine.Services.Calculators
             CashList.Add(100, 100);
             CashList.Add(200, 100);
             CashList.Add(500, 10);
+            CashList.Add(1000, 10);
             CashList.Add(2000, 20);
             CashList.Add(5000, 50);
         }
 
-        public WithdrawalResult CalculateWithdralResult(int pennies)
+        public WithdrawalResult CalculateWithdralResult(decimal amountRequested)
         {
-           var remainingCash = pennies;
+            var pennies = amountRequested.ToPennies();
+            var remainingCash = pennies;
 
-           //do
-           //{
-               var maxCashAmt = CashList.Where(x => x.Key <= pennies && x.Value != 0).Max(x => x.Key);
-               var numberOfAvailableUnits = CashList.SingleOrDefault(x => x.Key == maxCashAmt).Value;
-               var unitsNeeded = pennies / maxCashAmt;
+            var maxCashAmt = CashList.Where(x => x.Key <= pennies && x.Value != 0).Max(x => x.Key);
+            var numberOfAvailableUnits = CashList.SingleOrDefault(x => x.Key == maxCashAmt).Value;
+            var unitsNeeded = pennies / maxCashAmt;
 
-               if (numberOfAvailableUnits >= unitsNeeded)
-               {
-                   GetHighestCashAmountAndWithdraw(maxCashAmt, numberOfAvailableUnits, unitsNeeded);
-                   remainingCash = remainingCash - (maxCashAmt * unitsNeeded);
-               }
-               else
-               {
-                   GetHighestCashAmountAndWithdraw(maxCashAmt, numberOfAvailableUnits, numberOfAvailableUnits);
-                   remainingCash = remainingCash - (maxCashAmt * numberOfAvailableUnits);
-               }
+            if (numberOfAvailableUnits >= unitsNeeded)
+            {
+                GetHighestCashAmountAndWithdraw(maxCashAmt, numberOfAvailableUnits, unitsNeeded);
+                remainingCash = remainingCash - (maxCashAmt * unitsNeeded);
+            }
+            else
+            {
+                GetHighestCashAmountAndWithdraw(maxCashAmt, numberOfAvailableUnits, numberOfAvailableUnits);
+                remainingCash = remainingCash - (maxCashAmt * numberOfAvailableUnits);
+            }
 
-               if (remainingCash != 0)
-               {
-                   CalculateWithdralResult(remainingCash);
-               }
+            if (remainingCash != 0)
+            {
+                CalculateWithdralResult(remainingCash.ToPounds());
+            }
 
-               return result;
+            return result;
                    //}
                //catch (DivideByZeroException e)
                //{
