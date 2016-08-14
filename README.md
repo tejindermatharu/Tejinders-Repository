@@ -12,7 +12,7 @@
 <h2> Tests </h2>
 
 There are unit tests and Integrations tests projects, please run them to see the passing tests. With more time, these would be more 
-comprehensive i.e edge cases and more tests more more scenarios (eg failure tests). What I have done is simply illustrate that there are some
+comprehensive i.e edge cases and more tests for more scenarios (eg failure testing). What I have done is simply illustrate that there are some
 core test suites and that the system has been built so that it is easily testable.
 
 <h2> Areas for improvement </h2>
