@@ -14,8 +14,8 @@ namespace CashMachine
     {
         public override void Load()
         {
-            //Bind<ICashCalculator>().To<LeastItemsCalculator>();
-            Bind<ICashCalculator>().To<MaxPerItemCalculator>();
+            Bind<ICashCalculator>().To<LeastItemsCalculator>();
+            //Bind<ICashCalculator>().To<MaxPerItemCalculator>();
             Bind<ICashMachineService>().To<CashMachineService>();
         }
     }
