@@ -17,8 +17,11 @@ core test suites and that the system has been built so that it is easily testabl
 
 <h2> Areas for improvement </h2>
 
+With more time and attention here are some areas of improvement:
+
 <ul>
   <li>A proper repository and persistence store, not a fake one that have used</li>
   <li>The system currently does not factor in multi user usage and no transactional behaviour is used</li>
+  <li>Some proper exception handling and defensive coding</li>
 </ul>
 
