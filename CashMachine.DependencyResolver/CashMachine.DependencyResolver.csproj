@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B1BCBBF7-5D63-4AE4-836B-210A84ABC3C4}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{85FCC71E-7D4A-4DEC-9926-2A2E884EFB4F}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CashMachine</RootNamespace>
-    <AssemblyName>CashMachine</AssemblyName>
+    <RootNamespace>CashMachine.DependencyResolver</RootNamespace>
+    <AssemblyName>CashMachine.DependencyResolver</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -45,26 +43,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ConsoleModule.cs" />
+    <Compile Include="ServiceModule.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CashMachine.DependencyResolver\CashMachine.DependencyResolver.csproj">
-      <Project>{85fcc71e-7d4a-4dec-9926-2a2e884efb4f}</Project>
-      <Name>CashMachine.DependencyResolver</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CashMachine.Entities\CashMachine.Entities.csproj">
-      <Project>{48e2835f-33ba-4b0d-bf03-f4663e4fe544}</Project>
-      <Name>CashMachine.Entities</Name>
-    </ProjectReference>
     <ProjectReference Include="..\CashMachine.Interfaces\CashMachine.Interfaces.csproj">
       <Project>{285c68e4-edfa-43e7-b389-1cd1f260c975}</Project>
       <Name>CashMachine.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CashMachine.Repository\CashMachine.Repository.csproj">
+      <Project>{c674c79d-6d3b-4ff3-95dd-fbba42b373c1}</Project>
+      <Name>CashMachine.Repository</Name>
     </ProjectReference>
     <ProjectReference Include="..\CashMachine.Services\CashMachine.Services.csproj">
       <Project>{6bbb094c-9ccd-49d1-a552-abf88cf73a21}</Project>

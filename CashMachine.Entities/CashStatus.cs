@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace CashMachine.Entities
 {
-    public class Cash
+    public enum CashStatus
     {
-        public int Value { get; set; }
-        public bool isCoin { get; set; }
+        HaveCash,
+        NotEnoughtCash,
+        OutOfCash
     }
 }

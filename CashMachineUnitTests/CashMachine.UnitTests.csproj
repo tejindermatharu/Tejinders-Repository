@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Castle.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.3.3.3\lib\net45\Castle.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Mono.Cecil, Version=0.9.6.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit3TestAdapter.3.4.1\lib\Mono.Cecil.dll</HintPath>
       <Private>True</Private>
@@ -44,6 +48,10 @@
     </Reference>
     <Reference Include="Mono.Cecil.Rocks, Version=0.9.6.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit3TestAdapter.3.4.1\lib\Mono.Cecil.Rocks.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Moq, Version=4.5.21.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <HintPath>..\packages\Moq.4.5.21\lib\net45\Moq.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="nunit.engine, Version=3.4.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
@@ -71,6 +79,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MaxPerItemUnitTests.cs" />
     <Compile Include="LeastItemsUnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -85,9 +94,17 @@
       <Project>{48e2835f-33ba-4b0d-bf03-f4663e4fe544}</Project>
       <Name>CashMachine.Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CashMachine.Interfaces\CashMachine.Interfaces.csproj">
+      <Project>{285c68e4-edfa-43e7-b389-1cd1f260c975}</Project>
+      <Name>CashMachine.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CashMachine.Services\CashMachine.Services.csproj">
       <Project>{6bbb094c-9ccd-49d1-a552-abf88cf73a21}</Project>
       <Name>CashMachine.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CashMachine.TestCommon\CashMachine.TestCommon.csproj">
+      <Project>{26020378-9a36-4b3e-ae90-01da70c28953}</Project>
+      <Name>CashMachine.TestCommon</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

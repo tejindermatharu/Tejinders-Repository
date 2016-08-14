@@ -10,14 +10,14 @@ namespace CashMachine.Entities.Extensions
     {
         public static int ToPennies(this decimal amount)
         {
-            return Decimal.ToInt32(amount) * 100;
+            return Decimal.ToInt32(amount * 100);
         }
 
         public static decimal ToPounds(this int pennies)
         {
            if (pennies == 0)
            {
-               throw new ArgumentException("Cannot convert 0 pennies to pounds.");
+               return 0;
            }
 
            return Convert.ToDecimal(pennies) / 100;
